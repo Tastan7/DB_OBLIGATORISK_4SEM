@@ -96,7 +96,7 @@ namespace IMDB_Database_Mandatory
                 }
         }
         // Midleritidig placering for AddMovieToDatabase metoden indtil den er flyttet til den korrekte fil 
-        public void addMovieToDatabase(string primaryTitle, string originalTitle, int startYear, int runtimeMinutes)
+        public void AddMovieToDatabase(string primaryTitle, string originalTitle, int startYear, int runtimeMinutes)
         {
             using (SqlConnection sqlConn = new SqlConnection(ConnString))
                 try
@@ -126,7 +126,7 @@ namespace IMDB_Database_Mandatory
         }
 
         // Midleritidig placering for AddPersonToDatabase metoden indtil den er flyttet til den korrekte fil
-        public void addPersonToDatabase(string actorName, int birthYear)
+        public void AddPersonToDatabase(string actorName, int birthYear)
         {
             using (SqlConnection sqlConn = new SqlConnection(ConnString))
                 try
