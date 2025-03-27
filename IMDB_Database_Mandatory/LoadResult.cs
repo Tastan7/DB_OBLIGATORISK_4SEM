@@ -23,23 +23,23 @@ namespace IMDB_Database_Mandatory
         public List<Person> Persons { get; set; } = new List<Person>();
         public List<PersonProfession> PersonProfessions { get; set; } = new List<PersonProfession>();
         public List<TitleWriter> TitleWriters { get; set; } = new List<TitleWriter>();
-        public List<TitleDirector> TitleDirectors { get; set; } = new List<TitleDirector>();
+        public List<TitleDirector> TitleDirector { get; set; } = new List<TitleDirector>();
 
         // Liste over kendte titler, som personer er forbundet til
         public List<KnownForTitles> KnownForTitles { get; set; } = new List<KnownForTitles>();
 
         // HashSets bruges til at tjekke, om vi allerede har set et ID før (undgår FK-conflicts)
-        public HashSet<string> TconstSet { get; set; } = new HashSet<string>(); // Tconst = Unikke film-ID'er
-        public HashSet<string> NconstSet { get; set; } = new HashSet<string>(); // Nconst = Unikke person-ID'er
+        public static HashSet<string> TconstHS { get; set; } = new HashSet<string>(); // Tconst = Unikke film-ID'er
+        public static HashSet<string> NconstHS { get; set; } = new HashSet<string>(); // Nconst = Unikke person-ID'er
 
         // Dictionary til hurtigere opslag af kendte titler
-        public Dictionary<string, string> KnownForTitlesDict { get; set; } = new Dictionary<string, string>();
+        public static Dictionary<string, string> KnownForTitlesDict { get; set; } = new Dictionary<string, string>();
 
         // Dictionary til at matche professioner med deres ID
-        public Dictionary<string, int> ProfessionDict { get; set; } = new Dictionary<string, int>();
+        public static Dictionary<string, int> ProfessionDict { get; set; } = new Dictionary<string, int>();
 
         // Dictionary til at matche genre med deres ID
-        public Dictionary<string, int> GenreIdMap { get; set; } = new Dictionary<string, int>();
+        public static Dictionary<string, int> GenreIdMap { get; set; } = new Dictionary<string, int>();
 
         // ikke helt sikker på at der fungerer som det skal, mangler at teste
     }
