@@ -9,6 +9,6 @@ namespace IMDB_Database_Mandatory.Models
     public class TitleGenre
     {
         public string Tconst { get; set; }
-        public string Nconst { get; set; }
+        public int GenreId { get; set; }
     }
 }
