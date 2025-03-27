@@ -10,7 +10,8 @@ namespace IMDB_Database_Mandatory
     public class DatabaseService
     {
         // Connection string til databasen når den er sat korrekt op
-        //private string ConnString = "server=localhost,1433;database="IKKE DEFINERET";user id="IKKE DEFINERET";password="IKKE DEFINERET";TrustServerCertificate=true";
+        // private string ConnString = "server=localhost,1433;database="IKKE DEFINERET";user id="IKKE DEFINERET";password="IKKE DEFINERET";TrustServerCertificate=true";
+        // Da connection string ikke er sat op endnu fordi DB er ikke oprettet i MSSQL så er der fejl i koden
         public void SearchForMovieByTitle(string title)
         {
             using (SqlConnection sqlConn = new SqlConnection(ConnString))
