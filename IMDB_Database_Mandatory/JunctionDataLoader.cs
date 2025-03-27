@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+// Denne klasse håndterer indlæsning af data i junction-tabeller, som bruges til at administrere mange-til-mange-relationer mellem andre tabeller.
 namespace IMDB_Database_Mandatory
 {
     public class JunctionDataLoader

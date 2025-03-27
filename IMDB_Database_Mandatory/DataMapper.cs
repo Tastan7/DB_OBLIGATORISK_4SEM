@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 
+// Til at mappe data fra databasen til modelklasser
 namespace IMDB_Database_Mandatory
 {
     public class DataMapper

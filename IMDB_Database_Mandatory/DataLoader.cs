@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+// Bruges til at loade data fra filer til databasen
 namespace IMDB_Database_Mandatory
 {
     public class DataLoader

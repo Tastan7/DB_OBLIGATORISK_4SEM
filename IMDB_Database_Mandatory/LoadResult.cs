@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Klassen bruges til at holde styr på alt data, der bliver indlæst fra filerne
 namespace IMDB_Database_Mandatory
 {
     public class LoadResult

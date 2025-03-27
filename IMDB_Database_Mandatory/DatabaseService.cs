@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Til at håndtere databasekald
 namespace IMDB_Database_Mandatory
 {
     public class DatabaseService
