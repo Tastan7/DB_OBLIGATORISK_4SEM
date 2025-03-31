@@ -118,10 +118,10 @@ namespace IMDB_Database_Mandatory
                 return;
             }
 
-            string writerSQL = "INSERT INTO [TitleWriters]([tconst], [nconst]) VALUES (@tconst, @nconst)";
+            string writerSQL = "INSERT INTO [TitleWriters]([Tconst], [Nconst]) VALUES (@Tconst, @Nconst)";
             SqlCommand writerSQLComm = new SqlCommand(writerSQL, sqlConn, transAction);
-            SqlParameter titPar = new SqlParameter("@tconst", SqlDbType.NVarChar, 50);
-            SqlParameter perPar = new SqlParameter("@nconst", SqlDbType.NVarChar, 50);
+            SqlParameter titPar = new SqlParameter("@Tconst", SqlDbType.NVarChar, 50);
+            SqlParameter perPar = new SqlParameter("@Nconst", SqlDbType.NVarChar, 50);
             writerSQLComm.Parameters.Add(titPar);
             writerSQLComm.Parameters.Add(perPar);
 
@@ -179,7 +179,7 @@ namespace IMDB_Database_Mandatory
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Indsættelse fejlede for TConst={writer.Tconst}, NConst={writer.Nconst}: {ex.Message}");
+                    Console.WriteLine($"Indsættelse fejlede for Tconst={writer.Tconst}, Nconst={writer.Nconst}: {ex.Message}");
                 }
             }
             Console.WriteLine("Director SQL kommando udført..");
@@ -199,10 +199,10 @@ namespace IMDB_Database_Mandatory
                 return;
             }
 
-            string directorSQL = "INSERT INTO [TitleDirectors]([tconst], [nconst]) VALUES (@tconst, @nconst)";
+            string directorSQL = "INSERT INTO [TitleDirectors]([Tconst], [Nconst]) VALUES (@Tconst, @Nconst)";
             SqlCommand directorSQLComm = new SqlCommand(directorSQL, sqlConn, transAction);
-            SqlParameter titlePar = new SqlParameter("@tconst", SqlDbType.NVarChar, 50);
-            SqlParameter personPar = new SqlParameter("@nconst", SqlDbType.NVarChar, 50);
+            SqlParameter titlePar = new SqlParameter("@Tconst", SqlDbType.NVarChar, 50);
+            SqlParameter personPar = new SqlParameter("@Nconst", SqlDbType.NVarChar, 50);
             directorSQLComm.Parameters.Add(titlePar);
             directorSQLComm.Parameters.Add(personPar);
 
@@ -248,7 +248,7 @@ namespace IMDB_Database_Mandatory
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Indsættelse fejlede for TConst={director.Tconst}, NConst={director.Nconst}: {ex.Message}");
+                    Console.WriteLine($"Indsættelse fejlede for Tconst={director.Tconst}, Nconst={director.Nconst}: {ex.Message}");
                 }
             }
             Console.WriteLine("Director SQL kommando udført..");
@@ -268,7 +268,7 @@ namespace IMDB_Database_Mandatory
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@nconst", SqlDbType.NVarChar, 50) { Value = nconst });
+                cmd.Parameters.Add(new SqlParameter("@Nconst", SqlDbType.NVarChar, 50) { Value = nconst });
 
                 // Tilføj output parameter
                 SqlParameter existsParam = new SqlParameter("@Exists", SqlDbType.Bit)
@@ -303,7 +303,7 @@ namespace IMDB_Database_Mandatory
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@tconst", SqlDbType.NVarChar, 50) { Value = tconst });
+                cmd.Parameters.Add(new SqlParameter("@Tconst", SqlDbType.NVarChar, 50) { Value = tconst });
 
                 // Tilføj output parameter
                 SqlParameter existsParam = new SqlParameter("@Exists", SqlDbType.Bit)
