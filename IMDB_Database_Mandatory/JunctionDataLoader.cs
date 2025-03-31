@@ -81,7 +81,7 @@ namespace IMDB_Database_Mandatory
                 string[] splitLine = line.Split("\t");
                 if (splitLine.Length != 6)
                 {
-                    throw new Exception("Invalid line:" + line);
+                    throw new Exception("Ugyldig linje:" + line);
                 }
                 string nconst = splitLine[0];
                 string profession = splitLine[4];

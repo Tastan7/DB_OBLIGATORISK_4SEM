@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +27,7 @@ namespace IMDB_Database_Mandatory
                 string[] splitLine = line.Split("\t");
                 if (splitLine.Length != 9)
                 {
-                    throw new Exception("Invalid line:" + line);
+                    throw new Exception("Ugyldig linje:" + line);
                 }
 
                 string tconst = splitLine[0];
@@ -49,12 +48,12 @@ namespace IMDB_Database_Mandatory
                     PrimaryTitle = primaryTitle,
                     OriginalTitle = originalTitle,
                     IsAdult = isAdult,
-                    StartYear = startYear,
-                    EndYear = endYear,
-                    RuntimeMinutes = runtimeMinutes
+                    StartYear = startYear ?? 0,
+                    EndYear = endYear ?? 0,
+                    RuntimeMinutes = runtimeMinutes ?? 0
                 });
 
-                // Handle genres from the 9th column (splitLine[8])
+                // Håndtere genres fra den 9. column (splitLine[8])
                 string[] genreArray = splitLine[8].Split(',');
 
                 foreach (string genreName in genreArray)
@@ -65,36 +64,30 @@ namespace IMDB_Database_Mandatory
                         continue;
                     }
 
-
                     string trimmedGenreName = genreName.Trim();
 
                     //Smid genres ind i HashSettet
                     //Genres.Add(trimmedGenreName);
 
-
                     Genre existingGenre = result.Genres.FirstOrDefault(g => g.GenreName == trimmedGenreName);
-
 
                     if (existingGenre == null)
                     {
                         existingGenre = new Genre { GenreName = trimmedGenreName };
                         result.Genres.Add(existingGenre);
                     }
-
-
                 }
                 lineCount++;
             }
             return result;
         }
+
         public LoadResult LoadPersons(string filePath)
         {
             lineCount = 0;
             //List<Person> persons = new List<Person>();
             foreach (string line in File.ReadLines(filePath).Skip(1))
             {
-
-
                 if (lineCount == 50000)
                 {
                     break;
@@ -102,7 +95,7 @@ namespace IMDB_Database_Mandatory
                 string[] splitLine = line.Split("\t");
                 if (splitLine.Length != 6)
                 {
-                    throw new Exception("Invalid line:" + line);
+                    throw new Exception("Ugyldig linje:" + line);
                 }
 
                 string nconst = splitLine[0];
@@ -116,8 +109,8 @@ namespace IMDB_Database_Mandatory
                 {
                     Nconst = nconst,
                     PrimaryName = primaryName,
-                    BirthYear = birthYear,
-                    DeathYear = deathYear
+                    BirthYear = birthYear ?? 0,
+                    DeathYear = deathYear ?? 0
                 });
                 //Load PrimaryProfessions
                 string[] professionArray = splitLine[4].Split(",");
@@ -145,15 +138,13 @@ namespace IMDB_Database_Mandatory
                         Nconst = nconst,
                         Tconst = knownForTitle,
                     });
-
-
                 }
                 lineCount++;
             }
 
             return result;
-
         }
+
         public LoadResult LoadCrews(string filePath)
         {
             lineCount = 0;
@@ -167,7 +158,7 @@ namespace IMDB_Database_Mandatory
                 string[] splitLine = line.Split("\t");
                 if (splitLine.Length != 3)
                 {
-                    throw new Exception("Invalid line:" + line);
+                    throw new Exception("Ugyldig linje:" + line);
                 }
                 /*
                  *  string[] professionArray = splitLine[4].Split(",");
@@ -189,7 +180,6 @@ namespace IMDB_Database_Mandatory
 
                 foreach (string director in directorsArray)
                 {
-
                     //Check om de loadede Titles tconst er i vores HashSet
                     if (LoadResult.TconstHS.Contains(tconst))
                     {
@@ -208,22 +198,13 @@ namespace IMDB_Database_Mandatory
                             {
                                 result.TitleWriters.Add(new TitleWriter
                                 {
-
                                     Tconst = tconst,
                                     Nconst = writer.Trim()
-
                                 });
                             }
-
                         }
                     }
-
                 }
-
-
-
-
-
                 lineCount++;
             }
             return result;
@@ -231,12 +212,12 @@ namespace IMDB_Database_Mandatory
 
         int? ParseInt(string value)
         {
-            if (value.ToLower() == "\\n") // checks if it is \n
+            if (value.ToLower() == "\\n") // checker om det er \n
             {
                 return null;
             }
             return int.Parse(value);
-
         }
     }
 }
+

@@ -36,23 +36,23 @@ namespace IMDB_Database_Mandatory
                                     string? year = reader["StartYear"].ToString();
                                     // flere fields kan tilføjes her
 
-                                    Console.WriteLine($"Title: {primaryTitle}, Year: {year}");
+                                    Console.WriteLine($"Titel: {primaryTitle}, År: {year}");
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("No movies found with the title.");
+                                Console.WriteLine("Ingen film fundet med titlen.");
                             }
                         }
                     }
                 }
                 catch (SqlException ex)
                 {
-                    Console.WriteLine("SQL error occured: " + ex.Message);
+                    Console.WriteLine("SQL fejl opstod: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error occured: " + ex.Message);
+                    Console.WriteLine("Fejl opstod: " + ex.Message);
                 }
         }
 
@@ -78,23 +78,23 @@ namespace IMDB_Database_Mandatory
                                     string? primaryName = reader["PrimaryName"].ToString();
                                     // flere fields kan tilføjes her
 
-                                    Console.WriteLine($"Name: {primaryName}");
+                                    Console.WriteLine($"Navn: {primaryName}");
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("Persons with given name not found.");
+                                Console.WriteLine("Personer med det givne navn blev ikke fundet.");
                             }
                         }
                     }
                 }
                 catch (SqlException ex)
                 {
-                    Console.WriteLine("SQL error occured: " + ex.Message);
+                    Console.WriteLine("SQL fejl opstod: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error occured: " + ex.Message);
+                    Console.WriteLine("Fejl opstod: " + ex.Message);
                 }
         }
         // Midleritidig placering for AddMovieToDatabase metoden indtil den er flyttet til den korrekte fil 
@@ -119,11 +119,11 @@ namespace IMDB_Database_Mandatory
                 }
                 catch (SqlException ex)
                 {
-                    Console.WriteLine("an SQL error occured: " + ex.Message);
+                    Console.WriteLine("en SQL fejl opstod: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("an error occured: " + ex.Message);
+                    Console.WriteLine("en fejl opstod: " + ex.Message);
                 }
         }
 
@@ -147,11 +147,11 @@ namespace IMDB_Database_Mandatory
                 }
                 catch (SqlException ex)
                 {
-                    Console.WriteLine("SQL error occured: " + ex.Message);
+                    Console.WriteLine("SQL fejl opstod: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error occured: " + ex.Message);
+                    Console.WriteLine("Fejl opstod: " + ex.Message);
                 }
         }
 
@@ -180,11 +180,11 @@ namespace IMDB_Database_Mandatory
                 }
                 catch (SqlException ex)
                 {
-                    Console.WriteLine("SQL error occured: " + ex.Message);
+                    Console.WriteLine("SQL fejl opstod: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error occured: " + ex.Message);
+                    Console.WriteLine("Fejl opstod: " + ex.Message);
                 }
         }
     }
